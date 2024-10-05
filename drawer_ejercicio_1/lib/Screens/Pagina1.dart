@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'SideMenu.dart';
 
-class Enlace2 extends StatelessWidget {
-  const Enlace2({super.key});
+class Pag1 extends StatelessWidget {
+  const Pag1({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Segunda pantalla"),
+        title: const Text("Página Uno"),
       ),
+      drawer: const SideMenu(),
       body: const Center(
-        child: Text("Parte central"),
+        child: Text("Text"),
       ),
     );
   }
