@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Pagina1.dart';
 import 'Pagina2.dart';
+import 'Pagina3.dart';
 import '../main.dart';
 
 class SideMenu extends StatelessWidget {
@@ -38,11 +39,12 @@ class SideMenu extends StatelessWidget {
             ),
           ),
 
+
           Ink(
             color: const Color.fromARGB(255, 255, 253, 143),
             child: ListTile(
               title: const Text(
-                "Página 1",
+                "Imagenes en fila",
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
@@ -58,7 +60,7 @@ class SideMenu extends StatelessWidget {
             color: const Color.fromARGB(255, 255, 253, 143),
             child: ListTile(
               title: const Text(
-                "Página 2",
+                "Imagenes en columna",
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
@@ -74,7 +76,7 @@ class SideMenu extends StatelessWidget {
             color: const Color.fromARGB(255, 255, 253, 143),
             child: ListTile(
               title: const Text(
-                "Página 3",
+                "Muestra íconos",
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {

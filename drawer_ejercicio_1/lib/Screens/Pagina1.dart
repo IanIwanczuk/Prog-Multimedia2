@@ -8,12 +8,18 @@ class Pag1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Página Uno"),
+        title: const Text("Imagenes en fila"),
+        backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
       ),
       drawer: const SideMenu(),
-      body: const Center(
-        child: Text("Text"),
-      ),
+      body: Row(
+        children:[
+          Image.asset("assets/images/img1.png"),
+          Image.asset("assets/images/img2.png"),
+          Image.asset("assets/images/img3.png"),
+        ],),
+
+        backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
     );
   }
 }

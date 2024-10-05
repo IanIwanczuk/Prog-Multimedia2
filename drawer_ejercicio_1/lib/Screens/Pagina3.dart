@@ -1,19 +1,50 @@
 import 'package:flutter/material.dart';
 import 'SideMenu.dart';
 
-class Pag2 extends StatelessWidget {
-  const Pag2({super.key});
+class Pag3 extends StatelessWidget {
+  const Pag3({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Página Uno"),
+        title: const Text("Muestra de íconos"),
+        backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
       ),
       drawer: const SideMenu(),
-      body: const Center(
-        child: Text("Text"),
-      ),
+
+      body: const Row(
+          	mainAxisAlignment: MainAxisAlignment.center,
+          	children: <Widget>[
+            	Icon(
+              	Icons.ac_unit_sharp,
+              	color: Color.fromARGB(255, 81, 255, 86),
+        	      	size: 50.0,
+            	),
+            	Icon(
+              	Icons.system_security_update,
+              	color: Color.fromARGB(255, 30, 45, 255),
+              	size: 50.0,
+            	),
+            	Icon(
+              	Icons.gamepad,
+         	   	  color: Color.fromARGB(255, 255, 216, 20),
+              	size: 50.0,
+            	),
+              Icon(
+              	Icons.wysiwyg_outlined,
+         	   	  color: Color.fromARGB(255, 255, 20, 20),
+              	size: 50.0,
+            	),
+              Icon(
+              	Icons.two_mp_rounded,
+         	   	  color: Color.fromARGB(255, 0, 251, 255),
+              	size: 50.0,
+            	),
+          	],
+        	),
+
+      backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
     );
   }
 }

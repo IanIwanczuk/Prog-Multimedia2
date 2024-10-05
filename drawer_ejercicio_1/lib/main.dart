@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
         home: Scaffold(
 
           appBar: AppBar(
-            title: const Text("Drawer Ejercicio 1"),
+            title: const Text("Inicio"),
             backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
           ),
 
