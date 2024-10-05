@@ -1,16 +1,11 @@
-# drawer_ejercicio_1
+# Ejercicio de drawer 1
 
-A new Flutter project.
+##### Actividad resumen del tema 1:
+Para esta actividad habrá que personalizar el drawer para hacerlo lo más completo posible y cada programa tendrá que estar en el fichero y carpeta correspondiente.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Realiza una aplicación en la que se disponga un drawer en el que se pueda acceder a las siguientes pantallas:
+1. Tu nombre y apellidos con una fuente de google fonts y dirección del repositorio del alumno (con otro tipo de letra)
+2. 3 fotos en miniatura dispuestas en fila 
+3. 3 fotos en miniatura dispuestas en columnas 
+4. Mostrar 5 iconos
+5. Genera la apk correspondiente 
