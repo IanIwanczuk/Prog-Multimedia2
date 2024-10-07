@@ -1,4 +1,0 @@
-#Sat Oct 05 21:07:58 CEST 2024
-base.0=C\:\\Users\\Ianiwan\\Desktop\\Folders\\Programacion Multimedia\\drawer_ejercicio_1\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
