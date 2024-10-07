@@ -33,9 +33,6 @@ migrate_working_dir/
 # Ignore everything
 /build/
 
-# Except the following files
-!/build/app/outputs/
-
 # Symbolication related
 app.*.symbols
 
