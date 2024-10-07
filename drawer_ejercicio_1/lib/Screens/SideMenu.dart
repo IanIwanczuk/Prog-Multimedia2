@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Pagina1.dart';
 import 'Pagina2.dart';
 import 'Pagina3.dart';
+import 'Pagina4.dart';
 import '../main.dart';
 
 class SideMenu extends StatelessWidget {
@@ -19,8 +20,7 @@ class SideMenu extends StatelessWidget {
             accountEmail: Text("ian.iwn2003@gmail.com"),
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage(
-                        "https://i.imgur.com/0gZM86Q.png"),
+                    image: AssetImage("/images/img3.png"),
                     fit: BoxFit.cover)),
           ),
 
@@ -83,6 +83,22 @@ class SideMenu extends StatelessWidget {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Pag3()));
+              },
+            ),
+          ),
+
+
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Rows & Columns",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const Pag4()));
               },
             ),
           ),

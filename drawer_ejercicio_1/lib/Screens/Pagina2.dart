@@ -12,15 +12,21 @@ class Pag2 extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
       ),
       drawer: const SideMenu(),
-
-      body: Column(
-        children:[
-          Image.asset("assets/images/img3.png"),
-          Image.asset("assets/images/img2.png"),
-          Image.asset("assets/images/img1.png"),
-        ],),
-
       backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
+
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:[
+              Image.asset("assets/images/img3.png"),
+              Image.asset("assets/images/img2.png"),
+              Image.asset("assets/images/img1.png"),
+            ],),
+      ],),
     );
   }
 }

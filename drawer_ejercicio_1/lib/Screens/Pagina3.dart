@@ -12,9 +12,15 @@ class Pag3 extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
       ),
       drawer: const SideMenu(),
+      backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
 
-      body: const Row(
-          	mainAxisAlignment: MainAxisAlignment.center,
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
           	children: <Widget>[
             	Icon(
               	Icons.ac_unit_sharp,
@@ -43,8 +49,7 @@ class Pag3 extends StatelessWidget {
             	),
           	],
         	),
-
-      backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
+        ],),
     );
   }
 }
