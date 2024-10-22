@@ -42,8 +42,8 @@ class MainApp extends StatelessWidget {
                   "https://github.com/IanIwanczuk/Prog-Multimedia2/tree/main/drawer_ejercicio_1",
                   overflow: TextOverflow.clip,
                   style: GoogleFonts.spaceGrotesk(
-                  color: const Color.fromARGB(255, 80, 49, 255),
-                  fontSize: 13,),
+                    color: const Color.fromARGB(255, 80, 49, 255),
+                    fontSize: 13,),
                 ),
             ],),
 

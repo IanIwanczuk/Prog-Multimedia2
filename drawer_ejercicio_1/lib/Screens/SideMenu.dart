@@ -3,6 +3,9 @@ import 'Pagina1.dart';
 import 'Pagina2.dart';
 import 'Pagina3.dart';
 import 'Pagina4.dart';
+import 'Pagina5.dart';
+import 'Pagina6.dart';
+import 'Pagina7.dart';
 import '../main.dart';
 
 class SideMenu extends StatelessWidget {
@@ -99,6 +102,51 @@ class SideMenu extends StatelessWidget {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const Pag4()));
+              },
+            ),
+          ),
+
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Desafio de Medium.com",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const Pag5()));
+              },
+            ),
+          ),
+
+                    Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Rows & Columns 2",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const Pag6()));
+              },
+            ),
+          ),
+
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Contador + y -",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const Contador()));
               },
             ),
           ),
