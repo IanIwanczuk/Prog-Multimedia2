@@ -40,21 +40,21 @@ class HighlightStories extends StatelessWidget {
           child: const Column(children: [
           CircleAvatar(
             radius: 30.0,
-            backgroundImage: AssetImage("assets/images/img4.png"),
+            backgroundImage: AssetImage("images/img4.png"),
           ), Text("Pilotando"),
         ])),
         Container(padding: const EdgeInsets.only(left: 10, right: 10),
           child: const Column(children: [
           CircleAvatar(
             radius: 30.0,
-            backgroundImage: AssetImage("assets/images/img8.png"),
+            backgroundImage: AssetImage("images/img8.png"),
           ), Text("Praga"),
         ])),
         Container(padding: const EdgeInsets.only(left: 5, right: 5),
           child: const Column(children: [
           CircleAvatar(
             radius: 30.0,
-            backgroundImage: AssetImage("assets/images/img5.png"),
+            backgroundImage: AssetImage("images/img5.png"),
           ), Text("Arquitectura"),
         ])),
     

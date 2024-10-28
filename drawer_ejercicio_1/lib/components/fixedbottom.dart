@@ -13,8 +13,8 @@ class FixedBottomBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset("assets/images/home.png", width: 30, height: 30),
-          Image.asset("assets/images/search.png", width: 30, height: 30),
+          Image.asset("images/home.png", width: 30, height: 30),
+          Image.asset("images/search.png", width: 30, height: 30),
           Container(
             width: 30.0,
             height: 30.0, 
@@ -33,7 +33,7 @@ class FixedBottomBar extends StatelessWidget {
                 size: 25.0,
               ),
             )),
-            Image.asset("assets/images/heart.png", width: 30, height: 30),
+            Image.asset("images/heart.png", width: 30, height: 30),
     
             Container(
               width: 30.0,
@@ -41,7 +41,7 @@ class FixedBottomBar extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: const DecorationImage(
-                  image: AssetImage("assets/images/img1.png"),
+                  image: AssetImage("images/img1.png"),
                   fit: BoxFit.cover,
                 ),
                 border: Border.all(

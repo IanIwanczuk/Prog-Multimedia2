@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Screens/SideMenu.dart';
+import 'screens/SideMenu.dart';
 
 void main() => runApp(
  const MainApp()

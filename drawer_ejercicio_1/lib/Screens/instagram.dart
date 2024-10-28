@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'components/profile.dart';
-import 'components/highlights.dart';
-import 'components/fixedbottom.dart';
+import '../screens/SideMenu.dart';
+import '../components/profile.dart';
+import '../components/highlights.dart';
+import '../components/fixedbottom.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Instagram());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Instagram extends StatelessWidget {
+  const Instagram({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-    'assets/images/img9.png',
-    'assets/images/img8.png',
-    'assets/images/img7.png',
-    'assets/images/img6.png',
-    'assets/images/img5.png',
-    'assets/images/img4.png',
-    'assets/images/img3.png',
-    'assets/images/img4.png',
-    'assets/images/img6.png',
-    'assets/images/img1.png',
-    'assets/images/img8.png',
-    'assets/images/img2.png',
+    'images/img9.png',
+    'images/img8.png',
+    'images/img7.png',
+    'images/img6.png',
+    'images/img5.png',
+    'images/img4.png',
+    'images/img3.png',
+    'images/img4.png',
+    'images/img6.png',
+    'images/img1.png',
+    'images/img8.png',
+    'images/img2.png',
     ];
 
     return MaterialApp(
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
             title: const Text("ian.iwanczuk03"),
             backgroundColor: const Color.fromARGB(255, 255, 252, 240),
           ),
+          drawer: const SideMenu(),
 
           body: SafeArea (
             child: Padding(
@@ -73,10 +75,10 @@ class MainApp extends StatelessWidget {
                     children: [
                     Column(
                       children: [
-                      Image.asset("assets/images/grid.png", width: 30, height: 30),
+                      Image.asset("images/grid.png", width: 30, height: 30),
                     ],),
                     Column(children: [
-                      Image.asset("assets/images/user.png", width: 30, height: 30),
+                      Image.asset("images/user.png", width: 30, height: 30),
                     ],)
                   ],),
 
