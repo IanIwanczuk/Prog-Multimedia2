@@ -66,7 +66,7 @@ class Instagram extends StatelessWidget {
                     ],),
                   
                   const HighlightStories(),
-                  
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -86,7 +86,7 @@ class Instagram extends StatelessWidget {
                   
                   SizedBox(
                     width: 500,
-                    height: 250,
+                    height: 236,
                     child: GridView.count(
                       crossAxisCount: 3,
                       children:  List.generate(imgList.length, (index) {

@@ -2,8 +2,24 @@ import 'screens/screens.dart';
 
 void main() => runApp(
  MaterialApp(
-   debugShowCheckedModeBanner: false,
-   title: 'Home Screen',
+    // theme: ThemeData(
+    //   brightness: Brightness.light,
+    //   primaryColor: Colors.black,
+    //   scaffoldBackgroundColor: Colors.white,
+    //   appBarTheme: const AppBarTheme(
+    //     backgroundColor: Colors.black,
+    //     foregroundColor: Colors.white,
+    //     iconTheme: IconThemeData(color: Colors.white),
+    //   ),
+    //   textTheme: const TextTheme(
+    //     titleLarge: TextStyle(
+    //         fontWeight: FontWeight.bold, color: Colors.blue),
+    //     bodyMedium: TextStyle(fontSize: 18, color: Colors.black87),
+    //   ),
+    // ),
+
+    debugShowCheckedModeBanner: false,
+    title: 'Home Screen',
     initialRoute: '/',
     routes: {
       '/': (context) => const MainApp(),

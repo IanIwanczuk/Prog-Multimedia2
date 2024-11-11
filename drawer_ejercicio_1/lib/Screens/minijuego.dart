@@ -29,7 +29,7 @@ class _MinigameState extends State<Minigame> {
   late double screenWidth = MediaQuery.of(context).size.width - 100;
   late double screenHeight = MediaQuery.of(context).size.height - 100;
   late bool isTapped = false;
-  int speed = 1600;
+  int speed = 900;
   int points = 0;
 
   @override
@@ -81,10 +81,12 @@ class _MinigameState extends State<Minigame> {
       randomRight = getRandomRight();
       randomBottom = getRandomBottom();
       addPoints();
-      if (points % 15 == 0 && speed > 800) {
-        speed -= 700;
-      } else if (points % 5 == 0 && speed - 100 != 0) {
+      if (points % 5 == 0 && speed > 600) {
+        speed -= 500;
+      } else if (points % 5 == 0 && speed - 100 > 0) {
         speed -= 100;
+      } else if (points % 5 == 0 && speed - 10 > 0) {
+        speed -= 10;
       }
       setState(() {});
     });
@@ -94,7 +96,7 @@ class _MinigameState extends State<Minigame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Imagenes en fila"),
+        title: const Text("Minijuego de imágenes"),
         backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
       ),
       drawer: const SideMenu(),
