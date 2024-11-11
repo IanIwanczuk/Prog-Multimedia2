@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'SideMenu.dart';
+import 'screens.dart';
 
 class Pag6 extends StatelessWidget {
   const Pag6({super.key});

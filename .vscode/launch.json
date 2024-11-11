@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "drawer_ejercicio_1",
+            "cwd": "drawer_ejercicio_1",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/home_screen.dart"
+        },
+        {
+            "name": "drawer_ejercicio_1 (profile mode)",
+            "cwd": "drawer_ejercicio_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/home_screen.dart"
+        },
+        {
+            "name": "drawer_ejercicio_1 (release mode)",
+            "cwd": "drawer_ejercicio_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/home_screen.dart"
+        },
+        {
+            "name": "flutter_desdecero",
+            "cwd": "flutter_desdecero",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_desdecero (profile mode)",
+            "cwd": "flutter_desdecero",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_desdecero (release mode)",
+            "cwd": "flutter_desdecero",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

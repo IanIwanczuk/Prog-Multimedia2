@@ -1,9 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'screens/SideMenu.dart';
+import 'screens/screens.dart';
 
 void main() => runApp(
- const MainApp()
+ MaterialApp(
+   debugShowCheckedModeBanner: false,
+   title: 'Home Screen',
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const MainApp(),
+      '/Pag1': (context) => const Pag1(),
+      '/Pag2': (context) => const Pag2(),
+      '/Pag3': (context) => const Pag3(),
+      '/Pag4': (context) => const Pag4(),
+      '/Pag5': (context) => const Pag5(),
+      '/Pag6': (context) => const Pag6(),
+      '/Contador': (context) => const Contador(),
+      '/Instagram': (context) => const Instagram(),
+      '/Minigame': (context) => const Minigame(),
+    },)
 );
 
 class MainApp extends StatelessWidget {
@@ -11,10 +24,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'drawerEjercicio',
-        home: Scaffold(
+    return Scaffold(
 
           appBar: AppBar(
             title: const Text("Inicio"),
@@ -49,9 +59,7 @@ class MainApp extends StatelessWidget {
 
           backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
 
-        )
-
-    );
+        );
 
   }
 

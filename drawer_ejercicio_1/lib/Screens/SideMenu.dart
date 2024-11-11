@@ -1,17 +1,8 @@
-import 'package:flutter/material.dart';
-import 'Pagina1.dart';
-import 'Pagina2.dart';
-import 'Pagina3.dart';
-import 'Pagina4.dart';
-import 'Pagina5.dart';
-import 'Pagina6.dart';
-import 'Pagina7.dart';
-import 'instagram.dart';
-import '../main.dart';
+import 'screens.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,9 +27,8 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const MainApp()));
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/');
               },
             ),
           ),
@@ -52,9 +42,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag1()));
+                Navigator.pushNamed(context, '/Pag1');
               },
             ),
           ),
@@ -68,9 +56,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag2()));
+                Navigator.pushNamed(context, '/Pag2');
               },
             ),
           ),
@@ -84,9 +70,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag3()));
+                Navigator.pushNamed(context, '/Pag3');
               },
             ),
           ),
@@ -100,9 +84,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag4()));
+                Navigator.pushNamed(context, '/Pag4');
               },
             ),
           ),
@@ -115,9 +97,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag5()));
+                Navigator.pushNamed(context, '/Pag5');
               },
             ),
           ),
@@ -130,9 +110,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Pag6()));
+                Navigator.pushNamed(context, '/Pag6');
               },
             ),
           ),
@@ -145,9 +123,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Contador()));
+                Navigator.pushNamed(context, '/Contador');
               },
             ),
           ),
@@ -160,13 +136,23 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Instagram()));
+                Navigator.pushNamed(context, '/Instagram');
               },
             ),
           ),
 
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Minijuego de imágenes",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Minigame');
+              },
+            ),
+          ),
 
         ],
       ),

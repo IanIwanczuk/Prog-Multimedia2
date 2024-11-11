@@ -28,10 +28,7 @@ class Instagram extends StatelessWidget {
     'images/img2.png',
     ];
 
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'drawerEjercicio',
-        home: Scaffold(
+    return Scaffold(
           backgroundColor: const Color.fromARGB(255, 255, 254, 252),
 
           appBar: AppBar(
@@ -105,7 +102,6 @@ class Instagram extends StatelessWidget {
           ),
 
           bottomNavigationBar: const FixedBottomBar(),
-        ),
       );
   }
 }

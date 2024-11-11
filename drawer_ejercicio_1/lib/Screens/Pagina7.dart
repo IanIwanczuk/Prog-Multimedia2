@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'SideMenu.dart';
+import 'screens.dart';
 
 class Contador extends StatefulWidget {
   const Contador({super.key});
