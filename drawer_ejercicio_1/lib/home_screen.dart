@@ -1,38 +1,28 @@
 import 'screens/screens.dart';
+import 'routes/app_routes.dart';
 
 void main() => runApp(
  MaterialApp(
-    // theme: ThemeData(
-    //   brightness: Brightness.light,
-    //   primaryColor: Colors.black,
-    //   scaffoldBackgroundColor: Colors.white,
-    //   appBarTheme: const AppBarTheme(
-    //     backgroundColor: Colors.black,
-    //     foregroundColor: Colors.white,
-    //     iconTheme: IconThemeData(color: Colors.white),
-    //   ),
-    //   textTheme: const TextTheme(
-    //     titleLarge: TextStyle(
-    //         fontWeight: FontWeight.bold, color: Colors.blue),
-    //     bodyMedium: TextStyle(fontSize: 18, color: Colors.black87),
-    //   ),
-    // ),
-
+    theme: ThemeData(
+      brightness: Brightness.light,
+      primaryColor: Colors.black,
+      scaffoldBackgroundColor: const Color.fromRGBO(255, 250, 210, 1),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.black,
+        foregroundColor: Color.fromARGB(255, 159, 104, 0),
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 169, 112, 0)),
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.blue),
+        bodyMedium: TextStyle(color: Colors.black87),
+      ),
+    ),
+    title: 'Rutas',
     debugShowCheckedModeBanner: false,
-    title: 'Home Screen',
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const MainApp(),
-      '/Pag1': (context) => const Pag1(),
-      '/Pag2': (context) => const Pag2(),
-      '/Pag3': (context) => const Pag3(),
-      '/Pag4': (context) => const Pag4(),
-      '/Pag5': (context) => const Pag5(),
-      '/Pag6': (context) => const Pag6(),
-      '/Contador': (context) => const Contador(),
-      '/Instagram': (context) => const Instagram(),
-      '/Minigame': (context) => const Minigame(),
-    },)
+    initialRoute: AppRoutes.splash,
+    routes: AppRoutes.routes
+    )
 );
 
 class MainApp extends StatelessWidget {
@@ -44,7 +34,7 @@ class MainApp extends StatelessWidget {
 
           appBar: AppBar(
             title: const Text("Inicio"),
-            backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
+            backgroundColor: const Color.fromARGB(255, 255, 226, 196),
           ),
 
           drawer: const SideMenu(),
@@ -73,7 +63,8 @@ class MainApp extends StatelessWidget {
                 ),
             ],),
 
-          backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
+          // El fondo se pone por el THEME que hemos creado
+          // backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
 
         );
 

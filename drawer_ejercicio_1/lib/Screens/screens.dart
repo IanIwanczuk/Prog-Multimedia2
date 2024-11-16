@@ -10,3 +10,4 @@ export 'pagina7.dart';
 export 'instagram.dart';
 export 'minijuego.dart';
 export 'sidemenu.dart';
+export 'splash_screen.dart';
