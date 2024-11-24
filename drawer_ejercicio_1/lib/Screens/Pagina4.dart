@@ -23,7 +23,7 @@ class Pag4 extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("images/pinterest.png"),
+                  Image.asset("assets/images/pinterest.png"),
                   const Text("Pinterest",
                     style: TextStyle(
                       letterSpacing: 2,
@@ -34,7 +34,7 @@ class Pag4 extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("images/unity.png"),
+                  Image.asset("assets/images/unity.png"),
                   const Text("Unity",
                     style: TextStyle(
                       letterSpacing: 2,
@@ -51,7 +51,7 @@ class Pag4 extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("images/dropbox.png"),
+                  Image.asset("assets/images/dropbox.png"),
                   const Text("Dropbox",
                     style: TextStyle(
                       letterSpacing: 2,
@@ -62,7 +62,7 @@ class Pag4 extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("images/acrobat.png"),
+                  Image.asset("assets/images/acrobat.png"),
                   const Text("Acrobat",
                     style: TextStyle(
                       letterSpacing: 2,

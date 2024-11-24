@@ -14,18 +14,18 @@ class Instagram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-    'images/img9.png',
-    'images/img8.png',
-    'images/img7.png',
-    'images/img6.png',
-    'images/img5.png',
-    'images/img4.png',
-    'images/img3.png',
-    'images/img4.png',
-    'images/img6.png',
-    'images/img1.png',
-    'images/img8.png',
-    'images/img2.png',
+    'assets/images/img9.png',
+    'assets/images/img8.png',
+    'assets/images/img7.png',
+    'assets/images/img6.png',
+    'assets/images/img5.png',
+    'assets/images/img4.png',
+    'assets/images/img3.png',
+    'assets/images/img4.png',
+    'assets/images/img6.png',
+    'assets/images/img1.png',
+    'assets/images/img8.png',
+    'assets/images/img2.png',
     ];
 
     return Scaffold(
@@ -72,10 +72,10 @@ class Instagram extends StatelessWidget {
                     children: [
                     Column(
                       children: [
-                      Image.asset("images/grid.png", width: 30, height: 30),
+                      Image.asset("assets/images/grid.png", width: 30, height: 30),
                     ],),
                     Column(children: [
-                      Image.asset("images/user.png", width: 30, height: 30),
+                      Image.asset("assets/images/user.png", width: 30, height: 30),
                     ],)
                   ],),
 
@@ -86,7 +86,7 @@ class Instagram extends StatelessWidget {
                   
                   SizedBox(
                     width: 500,
-                    height: 236,
+                    height: 350,
                     child: GridView.count(
                       crossAxisCount: 3,
                       children:  List.generate(imgList.length, (index) {

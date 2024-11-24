@@ -12,7 +12,7 @@ class ProfileInfo extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 50.0,
-          backgroundImage: AssetImage("images/img1.png"),
+          backgroundImage: AssetImage("assets/images/img1.png"),
         ),
         Column(children: [
           Text ("1.026", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),

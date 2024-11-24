@@ -7,7 +7,7 @@ class Pag5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Imagenes en fila", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
+        title: const Text("Desafio Flutter", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 11, 11, 11),
       ),
@@ -34,9 +34,9 @@ class Pag5 extends StatelessWidget {
           ),),
         alignment: Alignment.centerLeft, //to align its child
         padding: const EdgeInsets.all(20),
-          height: 160,
+          height: 100,
           child: Text("Cyberpunk", style: GoogleFonts.sixtyfour(
-            fontSize: 40,
+            fontSize: 30,
             color: const Color.fromRGBO(255, 255, 255, 1),
           ),),
         ),

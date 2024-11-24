@@ -16,7 +16,7 @@ class SideMenu extends StatelessWidget {
             accountEmail: Text("ian.iwn2003@gmail.com"),
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("/images/img3.png"),
+                    image: AssetImage("assets/images/img3.png"),
                     fit: BoxFit.cover)),
           ),
 

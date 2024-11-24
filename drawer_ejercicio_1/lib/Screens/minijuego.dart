@@ -12,15 +12,15 @@ class Minigame extends StatefulWidget {
 
 class _MinigameState extends State<Minigame> {
   final List<String> imgList = [
-    'images/american.png',
-    'images/blogger.png',
-    'images/dropbox.png',
-    'images/meta.png',
-    'images/unity.png',
-    'images/twitter.png',
-    'images/postgre.png',
-    'images/medium.png',
-    'images/pinterest.png',
+    'assets/images/american.png',
+    'assets/images/blogger.png',
+    'assets/images/dropbox.png',
+    'assets/images/meta.png',
+    'assets/images/unity.png',
+    'assets/images/twitter.png',
+    'assets/images/postgre.png',
+    'assets/images/medium.png',
+    'assets/images/pinterest.png',
   ];
 
   late String randomImage;
@@ -28,8 +28,8 @@ class _MinigameState extends State<Minigame> {
   late double randomBottom;
   late double screenWidth = MediaQuery.of(context).size.width - 100;
   late double screenHeight = MediaQuery.of(context).size.height - 100;
+  late int reachedTen;
   late bool isTapped = false;
-  int speed = 900;
   int points = 0;
 
   @override
@@ -38,15 +38,18 @@ class _MinigameState extends State<Minigame> {
     randomImage = getRandomImg();
     randomRight = 0;
     randomBottom = 0;
+    reachedTen = 0;
     timer();
   }
 
   void addPoints() {
     if (isTapped) {
       points++;
+      reachedTen++;
       isTapped = false;
     } else {
       points--;
+      reachedTen = 0;
     }
   }
 
@@ -75,20 +78,23 @@ class _MinigameState extends State<Minigame> {
   }
 
   void timer() {
-    Timer.periodic(Duration(milliseconds: speed), (timer) {
+    Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       getRandomImg();
       randomImage = getRandomImg();
       randomRight = getRandomRight();
       randomBottom = getRandomBottom();
       addPoints();
-      if (points % 5 == 0 && speed > 600) {
-        speed -= 500;
-      } else if (points % 5 == 0 && speed - 100 > 0) {
-        speed -= 100;
-      } else if (points % 5 == 0 && speed - 10 > 0) {
-        speed -= 10;
+      setState(() {
+        if (reachedTen == 10) {
+        reachedTen = 0;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Haz conseguido 10 puntos seguidos!'),
+            duration: Duration(seconds: 3),
+          ),
+        );
       }
-      setState(() {});
+      });
     });
   }
 
@@ -126,7 +132,6 @@ class _MinigameState extends State<Minigame> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("Tienes $points punto(s)", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                        Text("Velocidad $speed ms", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                       ],)
                   ],)
               ],

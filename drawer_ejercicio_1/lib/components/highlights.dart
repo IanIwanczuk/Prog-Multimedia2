@@ -43,7 +43,7 @@ class HighlightStories extends StatelessWidget {
                         child: const Column(children: [
                         CircleAvatar(
                           radius: 25.0,
-                          backgroundImage: AssetImage("images/img4.png"),
+                          backgroundImage: AssetImage("assets/images/img4.png"),
                         ), 
                         Text("Pilotando"),
                       ])),
@@ -51,14 +51,14 @@ class HighlightStories extends StatelessWidget {
                         child: const Column(children: [
                         CircleAvatar(
                           radius: 25.0,
-                          backgroundImage: AssetImage("images/img8.png"),
+                          backgroundImage: AssetImage("assets/images/img8.png"),
                         ), Text("Praga"),
                       ])),
                       Container(padding: const EdgeInsets.only(left: 5, right: 5),
                         child: const Column(children: [
                         CircleAvatar(
                           radius: 25.0,
-                          backgroundImage: AssetImage("images/img5.png"),
+                          backgroundImage: AssetImage("assets/images/img5.png"),
                         ), Text("Arquitectura"),
                       ])),
                     ])
