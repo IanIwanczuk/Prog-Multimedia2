@@ -40,7 +40,7 @@ class TabState extends State<Pestanas> {
 
     return SizedBox(
       width: 500,
-      height: 350,
+      height: 314,
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -76,7 +76,6 @@ class TabState extends State<Pestanas> {
                       ),)),
 
                       Center(child: SizedBox(
-                      width: 500,
                       height: 350,
                       child: GridView.count(
                         crossAxisCount: 3,
@@ -91,6 +90,7 @@ class TabState extends State<Pestanas> {
               ),
             ],
           ),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255)
         ),
       )
     );

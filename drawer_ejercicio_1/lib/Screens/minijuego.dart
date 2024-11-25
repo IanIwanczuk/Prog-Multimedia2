@@ -23,13 +23,31 @@ class _MinigameState extends State<Minigame> {
     'assets/images/pinterest.png',
   ];
 
+  List<Color> colorsLight = [
+    const Color.fromARGB(255, 134, 34, 34),
+    const Color.fromARGB(255, 33, 113, 167),
+    const Color.fromARGB(255, 32, 155, 36),
+    const Color.fromARGB(255, 170, 156, 29),
+    const Color.fromARGB(255, 29, 29, 29),
+  ];
+
+    List<Color> colorsDark = [
+    const Color.fromARGB(255, 158, 65, 65),
+    const Color.fromARGB(255, 63, 124, 165),
+    const Color.fromARGB(255, 55, 131, 58),
+    const Color.fromARGB(255, 122, 115, 49),
+    const Color.fromARGB(255, 0, 0, 0),
+  ];
+
   late String randomImage;
   late double randomRight;
   late double randomBottom;
   late double screenWidth = MediaQuery.of(context).size.width - 100;
   late double screenHeight = MediaQuery.of(context).size.height - 100;
   late int reachedTen;
+  late int goal;
   late bool isTapped = false;
+  int currentIndex = 0;
   int points = 0;
 
   @override
@@ -39,6 +57,7 @@ class _MinigameState extends State<Minigame> {
     randomRight = 0;
     randomBottom = 0;
     reachedTen = 0;
+    goal = 10;
     timer();
   }
 
@@ -79,11 +98,16 @@ class _MinigameState extends State<Minigame> {
 
   void timer() {
     Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+      Random random = Random();
       getRandomImg();
       randomImage = getRandomImg();
       randomRight = getRandomRight();
       randomBottom = getRandomBottom();
       addPoints();
+      if (points == goal) {
+        goal += 5;
+        currentIndex = random.nextInt(colorsDark.length);
+      }
       setState(() {
         if (reachedTen == 10) {
         reachedTen = 0;
@@ -113,7 +137,7 @@ class _MinigameState extends State<Minigame> {
           height: screenHeight,
           child: Stack(
             children: [
-                Container(color: const Color.fromARGB(255, 255, 249, 233)),
+                Container(color: colorsLight[currentIndex]),
                 Positioned(
                   bottom: randomBottom,
                   right: randomRight,
@@ -139,7 +163,7 @@ class _MinigameState extends State<Minigame> {
         )),
       
       
-        backgroundColor: const Color.fromARGB(255, 255, 253, 215)
+        backgroundColor: colorsDark[currentIndex]
       );
   }
 }
