@@ -27,6 +27,6 @@ class AppRoutes {
     pag6: (context) => const Pag6(),
     contador: (context) => const Contador(),
     instagram: (context) => const Instagram(),
-    minigame: (context) => const Minigame()
+    minigame: (context) => const Minigame(),
   };
 }

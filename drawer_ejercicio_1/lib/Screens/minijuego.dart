@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'screens.dart';
 
 class Minigame extends StatefulWidget {
@@ -49,6 +48,7 @@ class _MinigameState extends State<Minigame> {
   late bool isTapped = false;
   int currentIndex = 0;
   int points = 0;
+  int combo = 0;
 
   @override
   void initState() {
@@ -61,14 +61,36 @@ class _MinigameState extends State<Minigame> {
     timer();
   }
 
+  void showSimpleDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: const Text('Bienvenido, preparate para jugar'),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Comenzar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void addPoints() {
     if (isTapped) {
       points++;
       reachedTen++;
+      combo++;
       isTapped = false;
     } else {
       points--;
       reachedTen = 0;
+      combo = 0;
     }
   }
 
@@ -113,12 +135,11 @@ class _MinigameState extends State<Minigame> {
         reachedTen = 0;
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Haz conseguido 10 puntos seguidos!'),
+            content: Text('¡Haz conseguido 10 puntos seguidos!'),
             duration: Duration(seconds: 3),
           ),
         );
-      }
-      });
+      }});
     });
   }
 
@@ -156,6 +177,9 @@ class _MinigameState extends State<Minigame> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("Tienes $points punto(s)", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        (combo == 0)
+                        ? Text("x$combo", style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red)) 
+                        : Text("x$combo", style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.green)),
                       ],)
                   ],)
               ],
