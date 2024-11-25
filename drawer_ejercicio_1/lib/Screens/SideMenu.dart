@@ -38,6 +38,20 @@ class SideMenu extends StatelessWidget {
             color: const Color.fromARGB(255, 255, 253, 143),
             child: ListTile(
               title: const Text(
+                "ALERTS",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/alerts');
+              },
+            ),
+          ),
+
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
                 "Imagenes en fila",
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
