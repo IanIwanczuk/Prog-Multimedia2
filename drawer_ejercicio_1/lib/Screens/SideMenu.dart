@@ -154,6 +154,19 @@ class SideMenu extends StatelessWidget {
             ),
           ),
 
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Siete y medio",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Sieteymedio');
+              },
+            ),
+          ),
+
         ],
       ),
     );

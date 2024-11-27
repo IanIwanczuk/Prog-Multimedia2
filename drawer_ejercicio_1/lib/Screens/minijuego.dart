@@ -30,7 +30,7 @@ class _MinigameState extends State<Minigame> {
     const Color.fromARGB(255, 29, 29, 29),
   ];
 
-    List<Color> colorsDark = [
+  List<Color> colorsDark = [
     const Color.fromARGB(255, 158, 65, 65),
     const Color.fromARGB(255, 63, 124, 165),
     const Color.fromARGB(255, 55, 131, 58),

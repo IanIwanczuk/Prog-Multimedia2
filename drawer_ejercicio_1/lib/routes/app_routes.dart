@@ -13,6 +13,7 @@ class AppRoutes {
   static const String contador = '/Contador';
   static const String instagram = '/Instagram';
   static const String minigame = '/Minigame';
+  static const String sieteymedio = '/Sieteymedio';
 
 
   // Mapa de rutas
@@ -28,5 +29,6 @@ class AppRoutes {
     contador: (context) => const Contador(),
     instagram: (context) => const Instagram(),
     minigame: (context) => const Minigame(),
+    sieteymedio: (context) => const SieteyMedio(),
   };
 }

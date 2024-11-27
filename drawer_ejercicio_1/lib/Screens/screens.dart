@@ -11,3 +11,4 @@ export 'instagram.dart';
 export 'minijuego.dart';
 export 'sidemenu.dart';
 export 'splash_screen.dart';
+export 'sieteymedio.dart';
