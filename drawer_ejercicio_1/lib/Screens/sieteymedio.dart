@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'screens.dart';
 
@@ -11,25 +12,26 @@ class SieteyMedio extends StatefulWidget {
 class _SieteyMedioState extends State<SieteyMedio> {
   late double screenWidth = MediaQuery.of(context).size.width - 100;
   late double screenHeight = MediaQuery.of(context).size.height - 250;
-  late int puntosCPU;
-  late int puntosPlayer;
-  int contUno = 0;
-  int contDos = 0;
-  int contTres = 0;
-  int contCuatro = 0;
-  int contCinco = 0;
-  int contSeis = 0;
-  int contSiete = 0;
-  int contDiez = 0;
-  int contOnce = 0;
-  int contDoce = 0;
+  late double puntosCPU;
+  late double puntosPlayer;
+  late int totalConts;
+  late bool isPlayerTurn;
+  late int cardIndex;
+  int contUno = 0;  int contDos = 0;  int contTres = 0;  int contCuatro = 0;  int contCinco = 0;
+  int contSeis = 0;  int contSiete = 0;  int contDiez = 0;  int contOnce = 0;  int contDoce = 0;
 
   // Poner todas las imagenes de las cartas
   final List<String> cardList = [
-    'assets/images/american.png',
-    'assets/images/blogger.png',
-    'assets/images/dropbox.png',
-    'assets/images/meta.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
+    'assets/images/card1.png',
   ];
 
   final List<int> userCards = [];
@@ -38,8 +40,13 @@ class _SieteyMedioState extends State<SieteyMedio> {
 
   @override
   void initState() {
+    userCards.clear;
+    cpuCards.clear;
     puntosCPU = 0;
     puntosPlayer = 0;
+    totalConts = 0;
+    isPlayerTurn = true;
+    cardIndex = 0;
     super.initState();
   }
 
@@ -49,7 +56,7 @@ class _SieteyMedioState extends State<SieteyMedio> {
     late int num;
 
     while (isInvalid) {
-      num = random.nextInt(10);
+      num = random.nextInt(10) + 1;
 
       if (num == 1 && contUno <= 4) {
         contUno++;
@@ -80,20 +87,76 @@ class _SieteyMedioState extends State<SieteyMedio> {
         num = 11;
         contOnce++;
         isInvalid = false;
-      } else if (num == 10 && contDoce <= 4) {
+      } else if (num == 10 && contDoce <= 4){
         num = 12;
         contDoce++;
         isInvalid = false;
       } 
 
     }
+    totalConts++;
 
     return num;
 
   }
 
   void resetGame() {
+    Navigator.popAndPushNamed(context, '/Sieteymedio');
     setState(() {});
+  }
+
+  double getPoints(List<int> cards) {
+    double sum = 0;
+    for (int card in cards) {
+      if (card == 10 || card == 11 || card == 12) {
+        sum += 0.5;
+      } else {
+        sum += card;
+      }
+    }
+    return sum;
+  }
+
+  bool houseStops() {
+    bool stops = false;
+    if (puntosCPU >= 6) {
+      stops = true;
+    }
+    return stops;
+  }
+
+  void endPlayerTurn() async {
+    isPlayerTurn = false;
+
+    while (!houseStops()) {
+      cpuCards.add(getCard());
+      puntosCPU = getPoints(cpuCards);
+      setState(() {});
+      await Future.delayed(const Duration(milliseconds: 500));
+    }
+
+    double playerDiff;
+    double cpuDiff;
+    if (puntosPlayer > 7.5) {
+      playerDiff = puntosPlayer - 7.5;
+    } else {
+      playerDiff = 7.5 - puntosPlayer;
+    }
+
+    if (puntosCPU > 7.5) {
+      cpuDiff = puntosCPU - 7.5;
+    } else {
+      cpuDiff = 7.5 - puntosCPU;
+    }
+    
+    if (playerDiff == cpuDiff) {
+      print("Empate, gana la CPU (CPU: $cpuDiff PLAYER: $playerDiff)");
+    } else if (playerDiff < cpuDiff) {
+      print("Gana el jugador (CPU: $cpuDiff PLAYER: $playerDiff)");
+    } else {
+      print("Gana la CPU por puntos (CPU: $cpuDiff PLAYER: $playerDiff)");
+    }
+
   }
 
   @override
@@ -115,29 +178,39 @@ class _SieteyMedioState extends State<SieteyMedio> {
                   left: 100,
                   child: Column(
                     children: [
-                      const Text("La casa"),
+                      const Text("La casa", style: TextStyle(fontSize: 25)),
+                      Row(
+                        children: 
+                        List.generate(cpuCards.length, (index) {
+                          // return Image.asset(imagePath, width: 100, height: 15);
+                          int num = cpuCards[index];
+                          if () 
+                          String imagePath = cardList[num - 1];
+
+                          return Text(
+                            "${cpuCards[index]} ", 
+                            style: const TextStyle(fontSize: 20),
+                          );
+                        }),),
+                      Text("Puntos: $puntosCPU"),
+                      // Text("Uno: $contUno Dos: $contDos Tres: $contTres Cuatro: $contCuatro Cinco: $contCinco"),
+                      // Text("Seis: $contSeis Siete: $contSiete Diez: $contDiez Once: $contOnce Doce: $contDoce"),
+                    ],
+                  )),
+                Positioned(
+                  bottom: 180,
+                  right: 100,
+                  child: Column(
+                    children: [
+                      const Text("Tú", style: TextStyle(fontSize: 25)),
                       Row(
                         children: List.generate(userCards.length, (index) {
                           return Text(
                             "${userCards[index]} ", 
                             style: const TextStyle(fontSize: 20),
-                        );}),),
-                      const Text("Puntos: 0"),
-                    ],
-                  )),
-                const Positioned(
-                  bottom: 180,
-                  right: 100,
-                  child: Column(
-                    children: [
-                      Text("Tu"),
-                      Row(
-                        children: [
-                          Text("Carta1 "),
-                          Text("Carta2 "),
-                          Text("Carta3"),
-                        ],),
-                      Text("Puntos: 0"),
+                        );})
+                      ),
+                      Text("Puntos: $puntosPlayer"),
                     ],
                   ))
               ],
@@ -149,23 +222,29 @@ class _SieteyMedioState extends State<SieteyMedio> {
 
       floatingActionButton: SafeArea(
         child: Row(
-          mainAxisSize: MainAxisSize.min, // Only occupy the minimum space
-          crossAxisAlignment: CrossAxisAlignment.end, // Align to the right
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 255, 209, 93),
-              onPressed: () {userCards.add(getCard()); setState(() {});},
+              onPressed: () {
+                if (totalConts != 50 && isPlayerTurn) {
+                  userCards.add(getCard()); 
+                  puntosPlayer = getPoints(userCards);
+                }
+                setState(() {});
+              },
               heroTag: 'Hit',
               child: const Icon(Icons.add),
             ),
-            const SizedBox(height: 10), // Space between buttons
+            const SizedBox(width: 10),
             FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 255, 209, 93),
-              onPressed: () {},
+              onPressed: () { if (isPlayerTurn) {endPlayerTurn();}},
               heroTag: 'Stand',
               child: const Icon(Icons.back_hand),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(width: 10),
             FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 255, 209, 93),
               onPressed: () {resetGame();},
