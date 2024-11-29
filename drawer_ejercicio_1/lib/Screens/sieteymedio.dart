@@ -22,16 +22,16 @@ class _SieteyMedioState extends State<SieteyMedio> {
 
   // Poner todas las imagenes de las cartas
   final List<String> cardList = [
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
-    'assets/images/card1.png',
+    'images/carta1.png',
+    'images/carta2.png',
+    'images/carta3.png',
+    'images/carta4.png',
+    'images/carta5.png',
+    'images/carta6.png',
+    'images/carta7.png',
+    'images/carta10.png',
+    'images/carta11.png',
+    'images/carta12.png',
   ];
 
   final List<int> userCards = [];
@@ -125,6 +125,26 @@ class _SieteyMedioState extends State<SieteyMedio> {
     return stops;
   }
 
+    void showMessage(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: const Text("Juego terminado"),
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                message,
+                style: const TextStyle(fontSize: 18),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void endPlayerTurn() async {
     isPlayerTurn = false;
 
@@ -134,37 +154,40 @@ class _SieteyMedioState extends State<SieteyMedio> {
       setState(() {});
       await Future.delayed(const Duration(milliseconds: 500));
     }
+    setState(() {determineWinner();});
+  }
 
-    double playerDiff;
-    double cpuDiff;
-    if (puntosPlayer > 7.5) {
-      playerDiff = puntosPlayer - 7.5;
-    } else {
-      playerDiff = 7.5 - puntosPlayer;
-    }
+    void determineWinner() {
+      double playerDiff;
+      double cpuDiff;
+      if (puntosPlayer > 7.5) {
+        playerDiff = puntosPlayer - 7.5;
+      } else {
+        playerDiff = 7.5 - puntosPlayer;
+      }
 
-    if (puntosCPU > 7.5) {
-      cpuDiff = puntosCPU - 7.5;
-    } else {
-      cpuDiff = 7.5 - puntosCPU;
-    }
-    
-    if (playerDiff == cpuDiff) {
-      print("Empate, gana la CPU (CPU: $cpuDiff PLAYER: $playerDiff)");
-    } else if (playerDiff < cpuDiff) {
-      print("Gana el jugador (CPU: $cpuDiff PLAYER: $playerDiff)");
-    } else {
-      print("Gana la CPU por puntos (CPU: $cpuDiff PLAYER: $playerDiff)");
-    }
+      if (puntosCPU > 7.5) {
+        cpuDiff = puntosCPU - 7.5;
+      } else {
+        cpuDiff = 7.5 - puntosCPU;
+      }
 
+      if (playerDiff < cpuDiff) {
+        showMessage(context, "Felicidades, ganaste contra la maquina");
+      } else if (playerDiff == cpuDiff) {
+        showMessage(context, "Empate, gana la casa");
+      } else {
+        showMessage(context, "Gana la casa por puntaje");
+      }
+      setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Siete y Medio"),
-        backgroundColor: const Color.fromRGBO(255, 201, 146, 1),
+        title: const Text("Siete y Medio", style: TextStyle(color: Color.fromARGB(255, 152, 91, 69)),),
+        backgroundColor: const Color.fromARGB(255, 77, 38, 0),
       ),
       drawer: const SideMenu(),
 
@@ -172,47 +195,69 @@ class _SieteyMedioState extends State<SieteyMedio> {
       body: Center(
         child: Stack(
             children: [
-                Container(color: const Color.fromARGB(255, 255, 245, 154)),
+                Container(color: const Color.fromARGB(255, 12, 130, 26)),
                 Positioned(
-                  top: 150,
-                  left: 100,
+                  top: 50,
+                  left: 60,
                   child: Column(
                     children: [
-                      const Text("La casa", style: TextStyle(fontSize: 25)),
-                      Row(
+                      const Text("La casa", style: TextStyle(fontSize: 25, color: Colors.white)),
+                      Row(   
                         children: 
                         List.generate(cpuCards.length, (index) {
-                          // return Image.asset(imagePath, width: 100, height: 15);
                           int num = cpuCards[index];
-                          if () 
-                          String imagePath = cardList[num - 1];
+                          String imagePath;
 
-                          return Text(
-                            "${cpuCards[index]} ", 
-                            style: const TextStyle(fontSize: 20),
-                          );
+                          if (num == 10 || num == 11 || num == 12) {
+                            imagePath = cardList[num - 3];
+                          } else {
+                            imagePath = cardList[num - 1];
+                          }
+
+                          return Image.asset(imagePath, width: 50, height: 100);
                         }),),
-                      Text("Puntos: $puntosCPU"),
-                      // Text("Uno: $contUno Dos: $contDos Tres: $contTres Cuatro: $contCuatro Cinco: $contCinco"),
-                      // Text("Seis: $contSeis Siete: $contSiete Diez: $contDiez Once: $contOnce Doce: $contDoce"),
+                      Row(   
+                      children: 
+                      List.generate(cpuCards.length, (index) {
+                        return Text(
+                          "${cpuCards[index]} ", 
+                          style: const TextStyle(fontSize: 20, color: Colors.white),
+                        );
+                      }),),
+                      Text("Puntos: $puntosCPU", style: const TextStyle(color: Colors.white),),
                     ],
                   )),
                 Positioned(
-                  bottom: 180,
+                  bottom: 100,
                   right: 100,
                   child: Column(
                     children: [
-                      const Text("Tú", style: TextStyle(fontSize: 25)),
-                      Row(
-                        children: List.generate(userCards.length, (index) {
+                      const Text("Tú", style: TextStyle(fontSize: 25, color: Colors.white)),
+                      Row(   
+                        children: 
+                        List.generate(userCards.length, (index) {
+                          int num = userCards[index];
+                          String imagePath;
+
+                          if (num == 10 || num == 11 || num == 12) {
+                            imagePath = cardList[num - 3];
+                          } else {
+                            imagePath = cardList[num - 1];
+                          }
+
+                          return Image.asset(imagePath, width: 50, height: 100);
+                        }),),
+                      Row(   
+                        children: 
+                        List.generate(userCards.length, (index) {
                           return Text(
                             "${userCards[index]} ", 
-                            style: const TextStyle(fontSize: 20),
-                        );})
-                      ),
-                      Text("Puntos: $puntosPlayer"),
+                            style: const TextStyle(fontSize: 20, color: Colors.white),
+                          );
+                        }),),
+                      Text("Puntos: $puntosPlayer", style: const TextStyle(color: Colors.white)),
                     ],
-                  ))
+                  )),
               ],
             ),
         ),
@@ -228,7 +273,7 @@ class _SieteyMedioState extends State<SieteyMedio> {
             FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 255, 209, 93),
               onPressed: () {
-                if (totalConts != 50 && isPlayerTurn) {
+                if (totalConts != 50 && isPlayerTurn && userCards.length != 7) {
                   userCards.add(getCard()); 
                   puntosPlayer = getPoints(userCards);
                 }
@@ -240,7 +285,13 @@ class _SieteyMedioState extends State<SieteyMedio> {
             const SizedBox(width: 10),
             FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 255, 209, 93),
-              onPressed: () { if (isPlayerTurn) {endPlayerTurn();}},
+              onPressed: () { 
+                if (isPlayerTurn) {
+                  endPlayerTurn();
+                }
+
+
+              },
               heroTag: 'Stand',
               child: const Icon(Icons.back_hand),
             ),
