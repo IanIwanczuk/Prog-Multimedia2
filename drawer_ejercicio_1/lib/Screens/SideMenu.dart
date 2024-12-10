@@ -167,6 +167,33 @@ class SideMenu extends StatelessWidget {
             ),
           ),
 
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Formulario y Validaciones",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/FormularioValid');
+              },
+            ),
+          ),
+
+          Ink(
+            color: const Color.fromARGB(255, 255, 253, 143),
+            child: ListTile(
+              title: const Text(
+                "Juego formulario",
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/FormularioJuego');
+              },
+            ),
+          ),
+
+
         ],
       ),
     );

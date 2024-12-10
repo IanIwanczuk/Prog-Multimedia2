@@ -14,6 +14,8 @@ class AppRoutes {
   static const String instagram = '/Instagram';
   static const String minigame = '/Minigame';
   static const String sieteymedio = '/Sieteymedio';
+  static const String formulariovalid = '/FormularioValid';
+  static const String formulariojuego = '/FormularioJuego';
 
 
   // Mapa de rutas
@@ -30,5 +32,7 @@ class AppRoutes {
     instagram: (context) => const Instagram(),
     minigame: (context) => const Minigame(),
     sieteymedio: (context) => const SieteyMedio(),
+    formulariovalid: (context) => const Formularios(),
+    formulariojuego: (context) => const Formulariojuego(),
   };
 }

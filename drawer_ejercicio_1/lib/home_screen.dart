@@ -63,9 +63,6 @@ class MainApp extends StatelessWidget {
                 ),
             ],),
 
-          // El fondo se pone por el THEME que hemos creado
-          // backgroundColor: const Color.fromRGBO(255, 250, 210, 1),
-
         );
 
   }
