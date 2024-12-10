@@ -22,16 +22,16 @@ class _SieteyMedioState extends State<SieteyMedio> {
 
   // Poner todas las imagenes de las cartas
   final List<String> cardList = [
-    'images/carta1.png',
-    'images/carta2.png',
-    'images/carta3.png',
-    'images/carta4.png',
-    'images/carta5.png',
-    'images/carta6.png',
-    'images/carta7.png',
-    'images/carta10.png',
-    'images/carta11.png',
-    'images/carta12.png',
+    'assets/images/carta1.png',
+    'assets/images/carta2.png',
+    'assets/images/carta3.png',
+    'assets/images/carta4.png',
+    'assets/images/carta5.png',
+    'assets/images/carta6.png',
+    'assets/images/carta7.png',
+    'assets/images/carta10.png',
+    'assets/images/carta11.png',
+    'assets/images/carta12.png',
   ];
 
   final List<int> userCards = [];
@@ -198,7 +198,7 @@ class _SieteyMedioState extends State<SieteyMedio> {
                 Container(color: const Color.fromARGB(255, 12, 130, 26)),
                 Positioned(
                   top: 50,
-                  left: 60,
+                  left: 50,
                   child: Column(
                     children: [
                       const Text("La casa", style: TextStyle(fontSize: 25, color: Colors.white)),
@@ -229,7 +229,7 @@ class _SieteyMedioState extends State<SieteyMedio> {
                   )),
                 Positioned(
                   bottom: 100,
-                  right: 100,
+                  right: 50,
                   child: Column(
                     children: [
                       const Text("Tú", style: TextStyle(fontSize: 25, color: Colors.white)),
