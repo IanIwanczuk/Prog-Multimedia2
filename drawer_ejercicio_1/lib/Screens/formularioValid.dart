@@ -34,7 +34,6 @@ class FormulariosState extends State<Formularios> {
     return Column(children: [
       TextFormField(
         keyboardType: TextInputType.emailAddress,
-        textInputAction: TextInputAction.continueAction,
         validator: (value) {
           if (value!.isEmpty) {
             return 'Este campo es obligatorio.';
@@ -62,7 +61,6 @@ class FormulariosState extends State<Formularios> {
       TextFormField(
         obscureText: true,
         obscuringCharacter: '*',
-        textInputAction: TextInputAction.continueAction,
         validator: (value) {
           if (value!.isEmpty) {
             return 'Este campo es obligatorio.';
@@ -93,7 +91,6 @@ class FormulariosState extends State<Formularios> {
       TextFormField(
         obscureText: true,
         obscuringCharacter: '*',
-        textInputAction: TextInputAction.continueAction,
         validator: (value) {
           if (value!.isEmpty) {
             return 'Este campo es obligatorio.';
@@ -126,7 +123,6 @@ class FormulariosState extends State<Formularios> {
   TextFormField _createTextFormField(
       String fieldName, TextEditingController controller) {
     return TextFormField(
-        textInputAction: TextInputAction.continueAction,
         validator: (value) {
           if (value!.isEmpty) {
             return 'Este campo es obligatorio.';
@@ -252,7 +248,6 @@ class FormulariosState extends State<Formularios> {
                     const Text('Fecha de nacimiento', style: TextStyle(color: Colors.black, fontSize: 30),),
                     TextFormField(
                       keyboardType: TextInputType.datetime,
-                      textInputAction: TextInputAction.continueAction,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Este campo es obligatorio.';
@@ -293,7 +288,7 @@ class FormulariosState extends State<Formularios> {
                     _createCheckBox(),
                     if (!termsOfService) 
                       const Text(
-                      "You must accept the terms and conditions",
+                      "Debe de aceptar los términos y condiciones",
                       style: TextStyle(color: Colors.red, fontSize: 10),
                     ),
 
