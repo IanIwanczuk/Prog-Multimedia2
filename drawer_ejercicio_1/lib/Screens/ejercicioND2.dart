@@ -8,26 +8,43 @@ class NoDualDos extends StatefulWidget {
 }
 
 class _NoDualDosState extends State<NoDualDos> {
+  final List<String> _provinces = [
+    'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz',
+    'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ceuta',
+    'Ciudad Real', 'Córdoba', 'La Coruña', 'Cuenca', 'Girona', 'Granada', 'Guadalajara',
+    'Gipuzkoa', 'Huelva', 'Huesca', 'Islas Baleares', 'Jaén', 'La Rioja', 'Las Palmas',
+    'León', 'Lleida', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Palencia',
+    'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia', 'Sevilla', 'Soria',
+    'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'
+  ];
   final _formKeyIzq = GlobalKey<FormState>();
-  final _formKeyIDer = GlobalKey<FormState>();
+  final _formKeyDer = GlobalKey<FormState>();
   bool isSwitched = false;
 
+  bool _isLeftForm = true;
   Widget _createSwitch() {
   return Switch(
-      value: isSwitched,
+      value: _isLeftForm,
       activeColor: Colors.amber,
       inactiveThumbColor: Colors.grey,
       onChanged: (value) {
         setState(() {
-          isSwitched = value;
+          _isLeftForm = value;
         });
       });
   }
 
-  TextEditingController nombreController = TextEditingController(text: "");
-  Widget _formIzquierda() {
+  final TextEditingController _dateController = TextEditingController(text: "");
+  String? _selectedProvince;
+  bool _natacion = false;
+  bool _futbol = false;
+  bool _caminata = false;
+  bool _basketball = false;
+  bool _videojuegos = false;
+  String? _selectedSex;
+  Widget _formDerecha() {
   return Form(
-      key: _formKeyIzq,
+      key: _formKeyDer,
       child: Column(
         children: [
           TextFormField(
@@ -36,8 +53,12 @@ class _NoDualDosState extends State<NoDualDos> {
               if (value!.isEmpty) {
                 return 'Este campo es obligatorio.';
               }
-              if (value.length != 30) {
-                return "Introduzca un nombre valido";
+              if (value.length != 10) {
+                return "Introduzca una fecha valida";
+              }
+              final emailRegex = RegExp(r'[0-9]{2}/[0-9]{2}/[0-9]{4}');
+              if (!emailRegex.hasMatch(value)) {
+                return 'Por favor, ingrese su nombre completo';
               }
               return null;
             },
@@ -53,72 +74,324 @@ class _NoDualDosState extends State<NoDualDos> {
                 ),
                 hintText: "DD/MM/YYYY",
                 labelText: 'Introduzca su fecha de nacimiento'),
-            controller: nombreController
+            controller: _dateController
           ),
+          const SizedBox(height: 16),
+          DropdownButtonFormField<String>(
+            value: _selectedProvince,
+            decoration: const InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 255, 154, 59),
+                    width: 2.0,
+                  ),
+                ),
+                labelStyle: TextStyle(
+                  color: Color.fromARGB(255, 180, 102, 29),
+                ),
+              border: OutlineInputBorder(),
+            ),
+            items: _provinces.map((province) {
+              return DropdownMenuItem<String>(
+                value: province,
+                child: Text(province),
+              );
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectedProvince = value;
+              });
+            },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, seleccione una ciudad de nacimiento';
+              }
+              return null;
+            },
+          ),
+
+          CheckboxListTile(
+            title: const Text('Natación'), 
+            value: _natacion,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _natacion = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          CheckboxListTile(
+            title: const Text('Caminata'), 
+            value: _caminata,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _caminata = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          CheckboxListTile(
+            title: const Text('Fútbol'), 
+            value: _futbol,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _futbol = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          CheckboxListTile(
+            title: const Text('Basketball'), 
+            value: _basketball,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _basketball = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          CheckboxListTile(
+            title: const Text('Videojuegos'), 
+            value: _videojuegos,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _videojuegos = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          DropdownButtonFormField<String>(
+              value: _selectedSex,
+              decoration: const InputDecoration(
+                labelText: 'Sexo',
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 255, 154, 59),
+                  width: 2.0,
+                ),
+              ),
+              labelStyle: TextStyle(
+                color: Color.fromARGB(255, 180, 102, 29),
+              ),
+              ),
+              items: ["Hombre", "Mujer", "Prefiero no contestar"]
+                  .map((number) => DropdownMenuItem<String>(
+                        value: number,
+                        child: Text(number),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  _selectedSex = value;
+                });
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, seleccione su sexo';
+                }
+                return null;
+              },
+            ),
+        ]
+      )
+    );
+  }
+
+  final TextEditingController _nameController = TextEditingController(text: "");
+  final TextEditingController _emailController = TextEditingController(text: "");
+  final TextEditingController _phoneController = TextEditingController(text: "");
+  String? _selectedChildren;
+  bool _hasChildren = false;
+  Widget _formIzquierda() {
+  return Form(
+      key: _formKeyIzq,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: _nameController,
+            decoration: const InputDecoration(
+              labelText: 'Nombre completo',
+              border: OutlineInputBorder(),
+              focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color.fromARGB(255, 255, 154, 59),
+                width: 2.0,
+              ),
+            ),
+            labelStyle: TextStyle(
+              color: Color.fromARGB(255, 180, 102, 29),
+            ),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, ingrese su nombre completo';
+              }
+              final emailRegex = RegExp(r'[a-zA-Z]{5,30}');
+              if (!emailRegex.hasMatch(value)) {
+                return 'Por favor, ingrese su nombre completo';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _emailController,
+            decoration: const InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color.fromARGB(255, 255, 154, 59),
+                width: 2.0,
+              ),
+            ),
+            labelStyle: TextStyle(
+              color: Color.fromARGB(255, 180, 102, 29),
+            ),
+              labelText: 'Correo electrónico',
+              border: OutlineInputBorder(),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, ingrese un correo';
+              }
+              final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+              if (!emailRegex.hasMatch(value)) {
+                return 'Por favor, ingrese un correo válido';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 16),
+          
+          TextFormField(
+            controller: _phoneController,
+            decoration: const InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color.fromARGB(255, 255, 154, 59),
+                width: 2.0,
+              ),
+            ),
+            labelStyle: TextStyle(
+              color: Color.fromARGB(255, 180, 102, 29),
+            ),
+              labelText: 'Número de teléfono',
+              border: OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.phone,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, ingrese un número de teléfono';
+              }
+              final phoneRegex = RegExp(r'^\d+$');
+              if (!phoneRegex.hasMatch(value)) {
+                return 'Por favor, ingrese un número de teléfono válido';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 16),
+
+          CheckboxListTile(
+            title: const Text('¿Tienes hijos?'), 
+            value: _hasChildren,
+            activeColor: Colors.amber,
+            onChanged: (bool? value) {
+              setState(() {
+                _hasChildren = value ?? false;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+          const SizedBox(height: 16),
+
+          if (_hasChildren)
+            DropdownButtonFormField<String>(
+              value: _selectedChildren,
+              decoration: const InputDecoration(
+                labelText: 'Edad de los hijos',
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 255, 154, 59),
+                  width: 2.0,
+                ),
+              ),
+              labelStyle: TextStyle(
+                color: Color.fromARGB(255, 180, 102, 29),
+              ),
+              ),
+              items: ['1', '2', '3']
+                  .map((number) => DropdownMenuItem<String>(
+                        value: number,
+                        child: Text(number),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  _selectedChildren = value;
+                });
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, seleccione la edad de sus hijos';
+                }
+                return null;
+              },
+            ),
         ],
       )
     );
   }
 
-
-  bool _isFirstForm = true;
-  final TextEditingController _firstFormController = TextEditingController(text: "");
-  final TextEditingController _secondFormController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Toggle Between Forms'),
+        title: const Text('Ejercicio No Dual 2'),
       ),
+      drawer: const SideMenu(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Switch to toggle form
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Use First Form'),
-                Switch(
-                  value: _isFirstForm,
-                  onChanged: (bool value) {
-                    setState(() {
-                      _isFirstForm = value;
-                    });
-                  },
-                ),
-              ],
-            ),
+            _createSwitch(),
 
             const SizedBox(height: 16),
 
-            // Conditional form display
-            if (_isFirstForm)
-              TextFormField(
-                controller: _firstFormController,
-                decoration: const InputDecoration(
-                  labelText: 'First Form Field',
-                ),
-              )
+            if (!_isLeftForm)
+              _formIzquierda()
             else
-              TextFormField(
-                controller: _secondFormController,
-                decoration: const InputDecoration(
-                  labelText: 'Second Form Field',
-                ),
-              ),
+              _formDerecha(),
 
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                if (_isFirstForm) {
-                  print('First Form Value: ${_firstFormController.text}');
+                bool? isValid;
+                if (!_isLeftForm) {
+                  isValid = _formKeyIzq.currentState?.validate();
+                  print('Left Form validation: $isValid');
                 } else {
-                  print('Second Form Value: ${_secondFormController.text}');
+                  isValid = _formKeyDer.currentState?.validate();
+                  print('Right Form validation:  $isValid');
                 }
               },
-              child: const Text('Print Value'),
-            ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber, 
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              ),
+              child: const Text('Enviar', style: TextStyle(color: Colors.black),),)
           ],
         ),
       ),
