@@ -289,8 +289,7 @@ class FormulariosState extends State<Formularios> {
                     if (!termsOfService) 
                       const Text(
                       "Debe de aceptar los términos y condiciones",
-                      style: TextStyle(color: Colors.red, fontSize: 10),
-                    ),
+                      style: TextStyle(color: Colors.red, fontSize: 10)),
 
                     const SizedBox(height: 20,),
                     const Text('Seleccione su edad', style: TextStyle(color: Colors.black, fontSize: 30),),

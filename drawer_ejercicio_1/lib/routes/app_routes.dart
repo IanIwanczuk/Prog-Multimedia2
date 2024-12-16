@@ -16,6 +16,7 @@ class AppRoutes {
   static const String sieteymedio = '/Sieteymedio';
   static const String formulariovalid = '/FormularioValid';
   static const String formulariojuego = '/FormularioJuego';
+  static const String nodualdos = '/NoDualDos';
 
 
   // Mapa de rutas
@@ -34,5 +35,6 @@ class AppRoutes {
     sieteymedio: (context) => const SieteyMedio(),
     formulariovalid: (context) => const Formularios(),
     formulariojuego: (context) => const Formulariojuego(),
+    nodualdos: (context) => const NoDualDos(),
   };
 }

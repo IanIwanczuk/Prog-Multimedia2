@@ -14,3 +14,4 @@ export 'splash_screen.dart';
 export 'sieteymedio.dart';
 export 'formularioValid.dart';
 export 'formularioJuego.dart';
+export 'ejercicioND2.dart';

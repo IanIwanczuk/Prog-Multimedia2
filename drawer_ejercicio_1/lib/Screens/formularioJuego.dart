@@ -85,7 +85,6 @@ class _FormulariojuegoState extends State<Formulariojuego> {
               ElevatedButton(
                 onPressed: () {
                   formKey.currentState?.validate();
-                  print("Numero: ${textController.text}");
                   if (int.tryParse(textController.text) != null) {
                     int guess = int.parse(textController.text);
                     if (guess < randomNum) {

@@ -13,7 +13,7 @@ void main() => runApp(
         iconTheme: IconThemeData(color: Color.fromARGB(255, 169, 112, 0)),
       ),
       textTheme: const TextTheme(
-        titleLarge: TextStyle(
+        titleLarge: TextStyle(  
             fontWeight: FontWeight.bold, color: Colors.blue),
         bodyMedium: TextStyle(color: Colors.black87),
       ),
