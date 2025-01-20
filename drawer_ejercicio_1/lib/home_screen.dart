@@ -2,7 +2,7 @@ import 'screens/screens.dart';
 import 'routes/app_routes.dart';
 
 void main() => runApp(
- MaterialApp(
+  MaterialApp(
     theme: ThemeData(
       brightness: Brightness.light,
       primaryColor: Colors.black,
@@ -20,9 +20,9 @@ void main() => runApp(
     ),
     title: 'Rutas',
     debugShowCheckedModeBanner: false,
-    initialRoute: AppRoutes.splash,
+    initialRoute: AppRoutes.pag1,
     routes: AppRoutes.routes
-    )
+  )
 );
 
 class MainApp extends StatelessWidget {

@@ -119,8 +119,7 @@ class FormulariosState extends State<Formularios> {
     ],);
   }
 
-  TextFormField _createTextFormField(
-      String fieldName, TextEditingController controller) {
+  TextFormField _createTextFormField(String fieldName, TextEditingController controller) {
     return TextFormField(
         validator: (value) {
           if (value!.isEmpty) {
