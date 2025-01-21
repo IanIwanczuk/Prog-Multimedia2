@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../screens/SideMenu.dart';
+import '../screens/side_menu.dart';
 import '../components/profile.dart';
 import '../components/highlights.dart';
 import '../components/fixedbottom.dart';
-import '../components/tabsInstagram.dart';
+import '../components/tabs_instagram.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
