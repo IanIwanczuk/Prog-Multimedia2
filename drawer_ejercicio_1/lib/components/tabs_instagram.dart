@@ -43,7 +43,7 @@ class TabState extends State<Pestanas> {
 
     return SizedBox(
       width: screenWidth,
-      height: screenHeight - 460,
+      height: screenHeight - 500,
       child: DefaultTabController(
         length: 2,
         child: Scaffold(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../screens/SideMenu.dart';
+import '../screens/side_menu.dart';
 import '../components/profile.dart';
 import '../components/highlights.dart';
 import '../components/fixedbottom.dart';
-import '../components/tabsInstagram.dart';
+import '../components/tabs_instagram.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
@@ -12,7 +12,6 @@ class Instagram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late double screenWidth = MediaQuery.of(context).size.width;
-    late double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
           backgroundColor: const Color.fromARGB(255, 255, 254, 252),
@@ -39,17 +38,17 @@ class Instagram extends StatelessWidget {
                     child: Text ("Estudiante de DAM, Argentina", style: TextStyle(fontSize: 15),),),
                   
                   SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 255, 255, 232),
-                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                          ),
-                          child: const Text('Editar perfil', style: TextStyle(color: Color.fromRGBO(65, 65, 65, 1))),
-                          onPressed: () {},
-                        ),
+                    width: screenWidth,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 255, 255, 232),
+                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
+                      ),
+                      child: const Text('Editar perfil', style: TextStyle(color: Color.fromRGBO(65, 65, 65, 1))),
+                      onPressed: () {},
+                    ),
                   ),
-
+                  
                   const HighlightStories(),
                     
                   const Pestanas(),
