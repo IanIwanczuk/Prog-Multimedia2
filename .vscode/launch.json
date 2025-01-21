@@ -9,7 +9,6 @@
             "cwd": "drawer_ejercicio_1",
             "request": "launch",
             "type": "dart",
-            "program": "lib/home_screen.dart"
         },
         {
             "name": "drawer_ejercicio_1 (profile mode)",
@@ -17,7 +16,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "program": "lib/home_screen.dart"
         },
         {
             "name": "drawer_ejercicio_1 (release mode)",
@@ -25,7 +23,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "program": "lib/home_screen.dart"
         },
         {
             "name": "flutter_desdecero",

@@ -8,8 +8,11 @@ import '../components/tabsInstagram.dart';
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    late double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
           backgroundColor: const Color.fromARGB(255, 255, 254, 252),
 
@@ -19,9 +22,9 @@ class Instagram extends StatelessWidget {
           ),
           drawer: const SideMenu(),
 
-          body: SafeArea (
+          body: Center (
             child: Padding(
-              padding: const EdgeInsets.all(0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,21 +37,17 @@ class Instagram extends StatelessWidget {
                   const Padding(padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
                     child: Text ("Estudiante de DAM, Argentina", style: TextStyle(fontSize: 15),),),
                   
-                  Row(
-                    children: [ 
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              // padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                              backgroundColor: const Color.fromARGB(255, 255, 255, 232),
-                              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                            ),
-                            child: const Text('Editar perfil', style: TextStyle(color: Color.fromRGBO(65, 65, 65, 1))),
-                            onPressed: () {},
-                          ),
-                      )
-                    ],),
+                  SizedBox(
+                    width: screenWidth,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 255, 255, 232),
+                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
+                      ),
+                      child: const Text('Editar perfil', style: TextStyle(color: Color.fromRGBO(65, 65, 65, 1))),
+                      onPressed: () {},
+                    ),
+                  ),
                   
                   const HighlightStories(),
 
