@@ -15,3 +15,4 @@ export 'sieteymedio.dart';
 export 'formularioValid.dart';
 export 'formularioJuego.dart';
 export 'ejercicioND2.dart';
+export 'home_screen.dart';

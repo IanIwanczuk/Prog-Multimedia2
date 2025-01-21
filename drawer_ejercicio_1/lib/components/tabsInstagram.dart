@@ -12,6 +12,9 @@ class Pestanas extends StatefulWidget {
 
 
 class TabState extends State<Pestanas> {
+  late double screenWidth = MediaQuery.of(context).size.width;
+  late double screenHeight = MediaQuery.of(context).size.height;
+
   @override
   Widget build(BuildContext context) {
     final List<String> imgList1 = [
@@ -39,8 +42,8 @@ class TabState extends State<Pestanas> {
     ];
 
     return SizedBox(
-      width: 500,
-      height: 314,
+      width: screenWidth,
+      height: screenHeight - 460,
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -64,8 +67,6 @@ class TabState extends State<Pestanas> {
                 child: TabBarView(
                   children: [
                     Center(child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 350,
                       child: GridView.count(
                         crossAxisCount: 3,
                         children:  List.generate(imgList1.length, (index) {
@@ -76,7 +77,6 @@ class TabState extends State<Pestanas> {
                       ),)),
 
                       Center(child: SizedBox(
-                      height: 350,
                       child: GridView.count(
                         crossAxisCount: 3,
                         children:  List.generate(imgList2.length, (index) {

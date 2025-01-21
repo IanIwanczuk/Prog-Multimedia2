@@ -1,5 +1,4 @@
 import '../screens/screens.dart';
-import '../home_screen.dart';
 
 class AppRoutes {
   static const String splash = '/';
@@ -22,7 +21,7 @@ class AppRoutes {
   // Mapa de rutas
   static final Map<String, WidgetBuilder> routes = {
     splash: (context) => const SplashScreen(),
-    home: (context) => const MainApp(),
+    home: (context) => const HomeW(),
     pag1: (context) => const Pag1(),
     pag2: (context) => const Pag2(),
     pag3: (context) => const Pag3(),
