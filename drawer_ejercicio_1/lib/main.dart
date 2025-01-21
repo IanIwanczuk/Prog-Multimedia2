@@ -20,7 +20,7 @@ void main() => runApp(
     ),
     title: 'Rutas',
     debugShowCheckedModeBanner: false,
-    initialRoute: AppRoutes.pag1,
+    initialRoute: AppRoutes.splash,
     routes: AppRoutes.routes
   )
 );
