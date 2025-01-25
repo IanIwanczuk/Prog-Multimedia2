@@ -5,12 +5,13 @@ import '../components/highlights.dart';
 import '../components/fixedbottom.dart';
 import '../components/tabs_instagram.dart';
 
-class Instagram extends StatelessWidget {
+class Instagram extends StatelessWidget { 
   const Instagram({super.key});
 
 
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
     late double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
