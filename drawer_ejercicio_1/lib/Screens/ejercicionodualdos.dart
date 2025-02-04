@@ -56,9 +56,9 @@ class _NoDualDosState extends State<NoDualDos> {
               if (value.length != 10) {
                 return "Introduzca una fecha valida";
               }
-              final emailRegex = RegExp(r'[0-9]{2}/[0-9]{2}/[0-9]{4}');
-              if (!emailRegex.hasMatch(value)) {
-                return 'Por favor, ingrese su nombre completo';
+              final fechaRegex = RegExp(r'[0-9]{2}/[0-9]{2}/[0-9]{4}');
+              if (!fechaRegex.hasMatch(value)) {
+                return 'Por favor, ingrese una fecha valida';
               }
               return null;
             },
@@ -211,7 +211,9 @@ class _NoDualDosState extends State<NoDualDos> {
   final TextEditingController _nameController = TextEditingController(text: "");
   final TextEditingController _emailController = TextEditingController(text: "");
   final TextEditingController _phoneController = TextEditingController(text: "");
-  String? _selectedChildren;
+  String? _selectedChildren1;
+  String? _selectedChildren2;
+  String? _selectedChildren3;
   bool _hasChildren = false;
   Widget _formIzquierda() {
   return Form(
@@ -237,9 +239,9 @@ class _NoDualDosState extends State<NoDualDos> {
               if (value == null || value.isEmpty) {
                 return 'Por favor, ingrese su nombre completo';
               }
-              final emailRegex = RegExp(r'[a-zA-Z]{5,30}');
-              if (!emailRegex.hasMatch(value)) {
-                return 'Por favor, ingrese su nombre completo';
+              final nameRegex = RegExp(r'^[A-Za-z]+( [A-Za-z]+)*$');
+              if (!nameRegex.hasMatch(value)) {
+                return 'Por favor, ingrese un nombre valido';
               }
               return null;
             },
@@ -317,9 +319,9 @@ class _NoDualDosState extends State<NoDualDos> {
 
           if (_hasChildren)
             DropdownButtonFormField<String>(
-              value: _selectedChildren,
+              value: _selectedChildren1,
               decoration: const InputDecoration(
-                labelText: 'Edad de los hijos',
+                labelText: 'Edad de su hijo 1',
                 border: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -331,7 +333,7 @@ class _NoDualDosState extends State<NoDualDos> {
                 color: Color.fromARGB(255, 180, 102, 29),
               ),
               ),
-              items: ['1', '2', '3']
+              items: ['No tengo', '1', '2', '3']
                   .map((number) => DropdownMenuItem<String>(
                         value: number,
                         child: Text(number),
@@ -339,12 +341,82 @@ class _NoDualDosState extends State<NoDualDos> {
                   .toList(),
               onChanged: (value) {
                 setState(() {
-                  _selectedChildren = value;
+                  _selectedChildren1 = value;
                 });
               },
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor, seleccione la edad de sus hijos';
+                  return 'Por favor, seleccione la edad de su hijo 1';
+                }
+                return null;
+              },
+            ),
+          const SizedBox(height: 10,),
+          if (_hasChildren)
+            DropdownButtonFormField<String>(
+              value: _selectedChildren2,
+              decoration: const InputDecoration(
+                labelText: 'Edad de su hijo 2',
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 255, 154, 59),
+                  width: 2.0,
+                ),
+              ),
+              labelStyle: TextStyle(
+                color: Color.fromARGB(255, 180, 102, 29),
+              ),
+              ),
+              items: ['No tengo', '1', '2', '3']
+                  .map((number) => DropdownMenuItem<String>(
+                        value: number,
+                        child: Text(number),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  _selectedChildren2 = value;
+                });
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, seleccione la edad de su hijo 2';
+                }
+                return null;
+              },
+            ),
+          const SizedBox(height: 10,),
+          if (_hasChildren)
+            DropdownButtonFormField<String>(
+              value: _selectedChildren3,
+              decoration: const InputDecoration(
+                labelText: 'Edad de su hijo 3',
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 255, 154, 59),
+                  width: 2.0,
+                ),
+              ),
+              labelStyle: TextStyle(
+                color: Color.fromARGB(255, 180, 102, 29),
+              ),
+              ),
+              items: ['No tengo', '1', '2', '3']
+                  .map((number) => DropdownMenuItem<String>(
+                        value: number,
+                        child: Text(number),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  _selectedChildren3 = value;
+                });
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, seleccione la edad de su hijo 3';
                 }
                 return null;
               },
@@ -363,37 +435,40 @@ class _NoDualDosState extends State<NoDualDos> {
       drawer: const SideMenu(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            _createSwitch(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  _createSwitch(),
 
-            const SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-            if (!_isLeftForm)
-              _formIzquierda()
-            else
-              _formDerecha(),
+                  if (!_isLeftForm)
+                    _formIzquierda()
+                  else
+                    _formDerecha(),
 
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                bool? isValid;
-                if (!_isLeftForm) {
-                  isValid = _formKeyIzq.currentState?.validate();
-                  print('Left Form validation: $isValid');
-                } else {
-                  isValid = _formKeyDer.currentState?.validate();
-                  print('Right Form validation:  $isValid');
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.amber, 
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (!_isLeftForm) {
+                        _formKeyIzq.currentState?.validate();
+                      } else {
+                        _formKeyDer.currentState?.validate();
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber, 
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    ),
+                    child: const Text('Enviar', style: TextStyle(color: Colors.black),),)
+                ],
               ),
-              child: const Text('Enviar', style: TextStyle(color: Colors.black),),)
-          ],
-        ),
+            ],
+          ),
+        )
       ),
     );
   }

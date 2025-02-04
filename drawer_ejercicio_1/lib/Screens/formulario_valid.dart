@@ -40,6 +40,10 @@ class FormulariosState extends State<Formularios> {
           if (value.length < 2 || value.length > 30) {
             return "Introduzca un valor entre 2 y 30 caracteres";
           }
+          final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+          if (!emailRegex.hasMatch(value)) {
+            return 'Por favor, ingrese un correo valido';
+          }
           return null;
         },
         decoration: const InputDecoration(
@@ -127,6 +131,10 @@ class FormulariosState extends State<Formularios> {
           }
           if (value.length < 2 || value.length > 30) {
             return "Introduzca un valor entre 2 y 30 caracteres";
+          }
+          final nameRegex = RegExp(r'^[A-Za-z]+( [A-Za-z]+)*$');
+          if (!nameRegex.hasMatch(value)) {
+            return 'Por favor, ingrese un nombre o apellido valido';
           }
           return null;
         },
@@ -252,6 +260,10 @@ class FormulariosState extends State<Formularios> {
                         }
                         if (value.length != 10) {
                           return "Introduzca una fecha valida";
+                        }
+                        final fechaRegex = RegExp(r'[0-9]{2}/[0-9]{2}/[0-9]{4}');
+                        if (!fechaRegex.hasMatch(value)) {
+                          return 'Por favor, ingrese una fecha valida';
                         }
                         return null;
                       },

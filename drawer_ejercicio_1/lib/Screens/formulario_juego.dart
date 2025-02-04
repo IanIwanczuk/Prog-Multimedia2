@@ -20,7 +20,6 @@ class _FormulariojuegoState extends State<Formulariojuego> {
   void initState() {
     super.initState();
     randomNum = random.nextInt(99) + 1;
-    print(randomNum);
   }
 
   void showMessage(BuildContext context, String title, String message) {
